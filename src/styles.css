@@ -1,55 +1,92 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(to right, #00AAFF, #00FF6C);
+  background: white;
+}
+.calc-body {
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  border: solid black 1px;
+  border-radius: 1rem;
 }
 
 .calculator-grid {
-  display: grid;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  grid-template-columns: repeat(4, 6rem);
-  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  margin-top: 10%;
 }
 
-.calculator-grid > button {
+.btn-grps > button {
   cursor: pointer;
-  font-size: 2rem;
-  border: 1px solid white;
+  font-size: 1rem;
   outline: none;
-  background-color: rgba(255, 255, 255, .75);
+  border-radius: 1rem;
 }
 
-.calculator-grid > button:hover,
-.calculator-grid > button:focus {
-  background-color: rgba(255, 255, 255, .9);
+button {
+  border: none;
+  border-radius: 1rem;
+  background: rgb(2, 27, 121);
+  color: white;
+}
+
+.btn-grps > button:hover,
+.btn-grps > button:focus {
+  background-color: rgb(3, 40, 77);
+  border-radius: 1rem;
 }
 
 .span-two {
   grid-column: span 2;
 }
 
+.btn-grps {
+  height: fit-content;
+  width: fit-content;
+  display: grid;
+  justify-content: center;
+  background: rgb(2, 27, 121);
+  border: solid black 1px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  grid-template-columns: repeat(4, 5rem);
+  grid-template-rows: minmax(4rem, auto) repeat(4, 4rem);
+}
+
 .output {
   grid-column: 1 / -1;
-  background-color: rgba(0, 0, 0, .75);
+  background: linear-gradient(
+    to right,
+    rgb(15, 12, 41),
+    rgb(48, 43, 99),
+    rgb(36, 36, 62)
+  );
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
-  padding: .75rem;
+  height: 10rem;
+  padding: 0.75rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   word-wrap: break-word;
   word-break: break-all;
 }
 
-.output .previous-operand {
-  color: rgba(255, 255, 255, .75);
-  font-size: 1.5rem;
+.output .history{
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  width: max-content;
 }
 
-.output .current-operand {
+.output .current-operation {
   color: white;
   font-size: 2.5rem;
 }
